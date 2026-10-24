@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestión estratégica de proyectos, recursos y servicios de mantenimiento con soluciones oportunas y resultados sostenibles.">
+  <meta name="theme-color" content="#F4F0E7">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nexo | Gestión y servicios">
+  <meta property="og:description" content="Gestión estratégica de proyectos, recursos y servicios de mantenimiento en Cali, Colombia.">
+  <meta name="twitter:card" content="summary">
+  <title>Nexo | Gestión y servicios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ivory: #F4F0E7;
+      --blue: #34465A;
+      --blue-gray: #8296A6;
+      --blue-dark: #263748;
+      --white: #fffefa;
+      --muted: #657482;
+      --shadow: 0 16px 40px rgba(52, 70, 90, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--blue);
+      font-family: "Poppins", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      background: rgba(244, 240, 231, 0.96);
+      border-bottom: 1px solid rgba(52, 70, 90, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--blue);
+      font-size: 1.06rem;
+      font-weight: 700;
+      letter-spacing: 0.035em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--blue);
+      color: var(--ivory);
+    }
+
+    .brand-mark svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .main-nav a {
+      transition: color 180ms ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      color: var(--blue-gray);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 23px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--white);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--blue-dark);
+      box-shadow: 0 8px 18px rgba(38, 55, 72, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .button:active,
+    .button.is-clicked {
+      background: #1c2a38;
+      transform: translateY(0);
+    }
+
+    .button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--blue-gray);
+      outline-offset: 3px;
+    }
+
+    /* Sección hero: propuesta de valor y llamado a la acción. */
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 590px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(27, 42, 56, 0.84) 0%, rgba(36, 51, 65, 0.66) 48%, rgba(36, 51, 65, 0.12) 100%),
+        url("imagenes/hero-arquitectura.jpg") center 54% / cover;
+      color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 690px;
+      padding: 88px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--blue-gray);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: #d5e0e7;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .hero h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(2.6rem, 5.4vw, 4.8rem);
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      line-height: 1.12;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin-bottom: 30px;
+      color: rgba(255, 254, 250, 0.87);
+      font-size: 1.02rem;
+    }
+
+    .hero .button {
+      background: var(--ivory);
+      color: var(--blue);
+    }
+
+    .hero .button:hover,
+    .hero .button:focus-visible {
+      background: #e5dfd2;
+    }
+
+    .hero .button:active,
+    .hero .button.is-clicked {
+      background: #d5cdbd;
+    }
+
+    /* Catálogo: tres áreas principales de trabajo. */
+    .catalog-section {
+      padding: 104px 0 110px;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      justify-content: center;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.2;
+    }
+
+    .section-heading > p:last-child {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .catalog-card,
+    .service-card {
+      border: 1px solid rgba(52, 70, 90, 0.07);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .catalog-card {
+      min-height: 250px;
+      padding: 30px;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .catalog-card:hover {
+      box-shadow: 0 22px 48px rgba(52, 70, 90, 0.13);
+      transform: translateY(-5px);
+    }
+
+    .icon-wrap {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 24px;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(130, 150, 166, 0.16);
+      color: var(--blue);
+    }
+
+    .icon-wrap svg {
+      width: 25px;
+      height: 25px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.7;
+    }
+
+    .catalog-card h3,
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+
+    .catalog-card p,
+    .service-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    /* Servicios: enfoque de trabajo y beneficios para cada proyecto. */
+    .services-section {
+      padding: 100px 0 108px;
+      background: #eae6dc;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(52, 70, 90, 0.06);
+    }
+
+    .service-number {
+      display: block;
+      margin-bottom: 27px;
+      color: var(--blue-gray);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+    }
+
+    /* Contacto: formulario accesible con confirmación en la página. */
+    .contact-section {
+      padding: 104px 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+      gap: 72px;
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.2;
+    }
+
+    .contact-copy > p:last-child {
+      max-width: 390px;
+      color: var(--muted);
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 13px;
+      margin-top: 26px;
+      color: var(--blue);
+      font-size: 0.9rem;
+    }
+
+    .contact-details a {
+      width: fit-content;
+      color: var(--blue);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: rgba(52, 70, 90, 0.35);
+      text-underline-offset: 3px;
+    }
+
+    .contact-details a:hover {
+      color: var(--blue-gray);
+    }
+
+    .contact-whatsapp {
+      margin-top: 24px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+      padding: 32px;
+      border: 1px solid rgba(52, 70, 90, 0.07);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .form-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-field label {
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid #d8d9d5;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--blue);
+      font-size: 0.9rem;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .form-field input {
+      min-height: 48px;
+      padding: 0 14px;
+    }
+
+    .form-field textarea {
+      min-height: 132px;
+      padding: 12px 14px;
+      resize: vertical;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: #84909a;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue-gray);
+      box-shadow: 0 0 0 3px rgba(130, 150, 166, 0.14);
+      outline: none;
+    }
+
+    .contact-form .button {
+      justify-self: start;
+    }
+
+    .form-status {
+      min-height: 1.5em;
+      margin: 0;
+      color: #2e6652;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Pie de página: navegación social y derechos reservados. */
+    .site-footer {
+      padding: 30px 0;
+      background: var(--blue);
+      color: var(--ivory);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      color: var(--white);
+    }
+
+    .footer-brand .brand-mark {
+      background: rgba(244, 240, 231, 0.13);
+      color: var(--ivory);
+    }
+
+    .footer-inner small {
+      color: rgba(244, 240, 231, 0.72);
+      font-size: 0.78rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.82rem;
+    }
+
+    .social-links a {
+      color: rgba(244, 240, 231, 0.84);
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      color: var(--white);
+    }
+
+    .back-to-top {
+      position: fixed;
+      z-index: 9;
+      right: 24px;
+      bottom: 24px;
+      display: grid;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 8px 22px rgba(38, 55, 72, 0.22);
+      color: var(--white);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
+      background: var(--blue-dark);
+    }
+
+    .back-to-top svg {
+      width: 21px;
+      height: 21px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+    }
+
+    /* Ajustes para tabletas y pantallas medianas. */
+    @media (max-width: 1024px) {
+      .hero {
+        min-height: 540px;
+        background-position: 58% center;
+      }
+
+      .card-grid,
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .catalog-section,
+      .contact-section {
+        padding: 86px 0;
+      }
+
+      .services-section {
+        padding: 84px 0 90px;
+      }
+
+      .catalog-card,
+      .service-card {
+        padding: 25px;
+      }
+
+      .contact-layout {
+        gap: 42px;
+      }
+    }
+
+    /* Ajustes para móviles: navegación y tarjetas en una columna. */
+    @media (max-width: 600px) {
+      html {
+        scroll-padding-top: 72px;
+      }
+
+      .container {
+        width: min(100% - 36px, 440px);
+      }
+
+      .header-inner {
+        min-height: 70px;
+        flex-wrap: wrap;
+        gap: 0 14px;
+        padding: 12px 0;
+      }
+
+      .brand {
+        font-size: 0.95rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .main-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 10px;
+        font-size: 0.76rem;
+      }
+
+      .hero {
+        min-height: 570px;
+        background-position: 60% center;
+      }
+
+      .hero-content {
+        padding: 72px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.45rem, 12vw, 3.55rem);
+      }
+
+      .hero-copy {
+        font-size: 0.94rem;
+      }
+
+      .catalog-section,
+      .contact-section {
+        padding: 72px 0;
+      }
+
+      .services-section {
+        padding: 72px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 32px;
+      }
+
+      .card-grid,
+      .services-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .services-grid {
+        gap: 15px;
+      }
+
+      .catalog-card {
+        min-height: auto;
+      }
+
+      .icon-wrap {
+        margin-bottom: 18px;
+      }
+
+      .contact-layout {
+        gap: 28px;
+      }
+
+      .contact-form {
+        padding: 23px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .social-links {
+        gap: 16px;
+      }
+
+      .back-to-top {
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado: identidad visual y navegación principal. -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Nexo, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 17V7l14 10V7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </span>
+        <span>NEXO <span style="font-weight: 400;">GESTIÓN</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: presentación de la propuesta y acceso al contacto. -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <p class="eyebrow">Gestión que genera valor</p>
+        <h1 id="hero-title">Estrategia clara. Resultados que perduran.</h1>
+        <p class="hero-copy">Combinamos visión estratégica, capacidad de ejecución y liderazgo para ofrecer soluciones oportunas, gestionar cada recurso con propósito y alcanzar resultados sostenibles.</p>
+        <a class="button" href="#contacto">
+          Hablemos de tu proyecto
+          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Catálogo: servicios de contratación, recursos y mantenimiento. -->
+    <section class="catalog-section" id="catalogo" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Lo que hacemos</p>
+          <h2 id="catalog-title">Soluciones para avanzar con confianza</h2>
+          <p>Coordinamos las piezas clave de cada operación para que tus proyectos avancen con orden, calidad y continuidad.</p>
+        </div>
+        <div class="card-grid">
+          <article class="catalog-card">
+            <span class="icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3.5" y="7" width="17" height="13" rx="2"></rect>
+                <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12h17M10 12v2h4v-2"></path>
+              </svg>
+            </span>
+            <h3>Contratación</h3>
+            <p>Coordinamos la selección y contratación de proveedores y talento de acuerdo con las necesidades de cada proyecto.</p>
+          </article>
+          <article class="catalog-card">
+            <span class="icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="8" r="3"></circle>
+                <path d="M3.5 19v-1.5A4.5 4.5 0 0 1 8 13h2a4.5 4.5 0 0 1 4.5 4.5V19M16 5.5a3 3 0 0 1 0 5.8M17 13h.5a4 4 0 0 1 4 4v2"></path>
+              </svg>
+            </span>
+            <h3>Gestión de recursos</h3>
+            <p>Organizamos personas, tiempos y presupuesto para aprovechar cada recurso de forma responsable y eficiente.</p>
+          </article>
+          <article class="catalog-card">
+            <span class="icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M14.5 6.5a4.5 4.5 0 0 0-5.8 5.8L4 17l3 3 4.7-4.7a4.5 4.5 0 0 0 5.8-5.8l-2.8 2.8-3-3 2.8-2.8Z"></path>
+                <path d="m5 6 2-2m-1 5L3 7"></path>
+              </svg>
+            </span>
+            <h3>Mantenimiento</h3>
+            <p>Planificamos y coordinamos acciones preventivas y correctivas para cuidar tus instalaciones y su operación.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios: capacidades que describen nuestro enfoque de trabajo. -->
+    <section class="services-section" id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Nuestro enfoque</p>
+          <h2 id="services-title">De la visión a la acción, con propósito</h2>
+          <p>Un acompañamiento integral que convierte objetivos en avances concretos y sostenibles.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">01 / ESTRATEGIA</span>
+            <h3>Planificación con dirección</h3>
+            <p>Definimos prioridades, identificamos oportunidades y trazamos un camino realista para cada iniciativa.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02 / EJECUCIÓN</span>
+            <h3>Coordinación de principio a fin</h3>
+            <p>Alineamos equipos, recursos y tiempos para resolver necesidades a tiempo y mantener cada proyecto en marcha.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03 / IMPACTO</span>
+            <h3>Resultados sostenibles</h3>
+            <p>Priorizamos decisiones responsables y una gestión eficiente que aporta valor más allá de la entrega inmediata.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto: formulario para iniciar una conversación sobre el proyecto. -->
+    <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contact-title">Cuéntanos qué necesitas</h2>
+          <p>Conversemos sobre tus objetivos y encontremos juntos la mejor manera de llevarlos a cabo.</p>
+          <div class="contact-details">
+            <a href="https://wa.me/573216479905" target="_blank" rel="noopener noreferrer">WhatsApp: +57 321 647 9905</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Cali%2C%20Colombia" target="_blank" rel="noopener noreferrer">Ubicación: Cali, Colombia</a>
+          </div>
+          <a class="button contact-whatsapp" href="https://wa.me/573216479905?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios." target="_blank" rel="noopener noreferrer">
+            Escríbenos por WhatsApp
+            <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+            </svg>
+          </a>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="¿Cómo te llamas?" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" placeholder="nombre@ejemplo.com" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente sobre tu proyecto..." required></textarea>
+          </div>
+          <button class="button" type="submit">Enviar mensaje</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página: enlaces sociales y aviso de derechos reservados. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#inicio" aria-label="Nexo, volver al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 17V7l14 10V7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </span>
+        <span>NEXO <span style="font-weight: 400;">GESTIÓN</span></span>
+      </a>
+      <small>© <span id="current-year"></span> Nexo Gestión. Todos los derechos reservados.</small>
+      <nav class="social-links" aria-label="Redes sociales">
+        <a href="https://wa.me/573216479905" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.instagram.com/arquitecturapoetica/" target="_blank" rel="noopener noreferrer">Instagram · @arquitecturapoetica</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Cali%2C%20Colombia" target="_blank" rel="noopener noreferrer">Cali, Colombia</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Control flotante para regresar al inicio después de desplazarse. -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba" title="Volver arriba">
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="m6 14 6-6 6 6M12 8v12"></path>
+    </svg>
+  </button>
+
+  <script>
+    // Cambia temporalmente el tono de los botones al hacer clic.
+    document.querySelectorAll(".button").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.add("is-clicked");
+        window.setTimeout(() => button.classList.remove("is-clicked"), 220);
+      });
+    });
+
+    // Confirma el envío localmente; conecta este formulario a un servicio para recibir mensajes.
+    const contactForm = document.querySelector("#contact-form");
+    const formStatus = document.querySelector("#form-status");
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const name = new FormData(contactForm).get("nombre").toString().trim();
+      formStatus.textContent = `¡Gracias, ${name}! Esta demostración no envía el mensaje a un servidor.`;
+      contactForm.reset();
+    });
+
+    // Muestra el botón de regreso cuando el usuario se aleja del inicio.
+    const backToTop = document.querySelector("#back-to-top");
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("is-visible", window.scrollY > 420);
+    }, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.querySelector("#current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
